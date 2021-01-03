@@ -6,7 +6,6 @@ import * as actions from '../store/actions.js';
 import useForm from '../hooks/useForm.js';
 
 function Form({addStore}) {
-    
     const defaults = {
         name: '',
         minCust: '',
@@ -14,11 +13,24 @@ function Form({addStore}) {
         avgSold: ''
     }
 
+    const styles = {
+        form: {
+            display: 'flex'
+        },
+        div: {
+            display: 'flex',
+            alignItems: 'center',
+            padding: '5px'
+        },
+        label: {
+            margin: '5px'
+        }
+    }
+
     const { handleChange, handleSubmit, fields } = useForm(defaults);
 
     function submit(e) {
         e.preventDefault();
-        console.log('YOU SUBMITTED THE FORM!')
         handleSubmit(addStore);
         e.target.reset();
     }
@@ -28,45 +40,64 @@ function Form({addStore}) {
     }
 
     return (
-        <form 
+        <form
             onSubmit={(e) => {
                 submit(e);
         }}>
-            <label>Store Location</label>
-            <input
-                id='name'
-                name='name'
-                type='text'
-                onChange={change}
-                required />
+            <h2>Add a Store</h2>
 
-            <label>Min Customers</label>
-            <input
-                id='minCust'
-                name='minCust'
-                type='text'
-                onChange={change}
-                required />
+            <div style={styles.div}>
+                <label style={styles.label}>Store Location</label>
+                <input
+                    id='name'
+                    name='name'
+                    type='text'
+                    onChange={change}
+                    required />
+            </div>
 
-            <label>Max Customers</label>
-            <input
-                id='maxCust'
-                name='maxCust'
-                type='text'
-                onChange={change}
-                required />
+            <div style={styles.div}>
+                <label style={styles.label}>Min Customers</label>
+                <input
+                    id='minCust'
+                    name='minCust'
+                    type='number'
+                    onChange={change}
+                    required />
+            </div>
 
-            <label>Avg Cookies per Cust</label>
-            <input
-                id='avgSold'
-                name='avgSold'
-                type='text'
-                onChange={change}
-                required /> 
+            <div style={styles.div}>
+                <label style={styles.label}>Max Customers</label>
+                <input
+                    id='maxCust'
+                    name='maxCust'
+                    type='number'
+                    onChange={change}
+                    required />
+            </div>
+
+            <div style={styles.div}>
+                <label style={styles.label}>Avg Cookies per Cust</label>
+                <input
+                    id='avgSold'
+                    name='avgSold'
+                    type='number'
+                    onChange={change}
+                    required /> 
+            </div>
 
             <button
-                type='submit'>
-                Submit
+                type='submit'
+                style={{
+                    cursor: 'pointer',
+                    padding: '10px',
+                    margin: '20px 0 0 0',
+                    width: '20%',
+                    minWidth: '55px',
+                    fontSize: '14px'
+                    }}
+                >
+                Save
             </button>
 
         </form>
