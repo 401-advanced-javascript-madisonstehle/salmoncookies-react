@@ -27,7 +27,7 @@ function Form({addStore}) {
         }
     }
 
-    const { handleChange, handleSubmit, fields } = useForm(defaults);
+    const { handleChange, handleSubmit } = useForm(defaults);
 
     function submit(e) {
         e.preventDefault();

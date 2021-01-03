@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 
 // Credit to Kristofer Selbekk for writing this article about table sorting hooks: https://www.smashingmagazine.com/2020/03/sortable-tables-react/
 

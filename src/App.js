@@ -40,10 +40,4 @@ function App() {
 }
 
 
-const mapStateToProps = (state) => {
-  return {
-      initStores: state.store.initStores,
-  }
-}
-
 export default App;

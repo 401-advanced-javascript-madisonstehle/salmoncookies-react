@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default store => next => action =>
   typeof action === 'function'
    ? action(store.dispatch, store.getState)
